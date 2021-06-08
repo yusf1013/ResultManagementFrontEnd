@@ -1,0 +1,24 @@
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th *ngFor = "let item of data[0] | keyvalue;">{{ item.key }}</th>
+            <th>action</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let item of data;  index as in;">
+            <!-- <ng-template ngFor let i of item | keyvalue let-in="index">
+                <td>  i.value </td>
+            </ng-template> -->
+            <td *ngFor = "let i of item | keyvalue;"> {{ i.value }}</td>
+            <td style="text-align: center;"><a href="/exams-update?id={{ item['id'] }}" class="btn btn-success align-self-center">Edit </a></td>
+            <td style="text-align: center;"><button class="btn btn-danger align-self-center" (click)= "delete( item['id'] )">Delete </button></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <a href="/exams-create" class="btn btn-info col-lg-6 offset-lg-3">Create new exam</a>
+
+</div>

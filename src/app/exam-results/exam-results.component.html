@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th *ngFor = "let item of data[0] | keyvalue;">{{ item.key }}</th>
+            <th *ngIf="role != 'student'">action</th>
+            <th *ngIf="role != 'student'">delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let item of data;  index as in;">
+            <!-- <ng-template ngFor let i of item | keyvalue let-in="index">
+                <td>  i.value </td>
+            </ng-template> -->
+            <td *ngFor = "let i of item | keyvalue;"> {{ i.value }}</td>
+            
+            <td *ngIf="role != 'student'" style="text-align: center;"><a href="/exam-results-update?id={{ item['Result ID'] }}" class="btn btn-success align-self-center">Edit </a></td>
+            <td *ngIf="role != 'student'" style="text-align: center;"><a class="btn btn-danger align-self-center" (click)= "delete( item['Result ID'])">Delete </a></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <a *ngIf="role != 'student'" href="/exam-results-create" class="btn btn-info col-lg-6 offset-lg-3">Add new result</a>
+
+</div>

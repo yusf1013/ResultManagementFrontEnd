@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Final Results</h1> <br>
+
+    <table class="table table-bordered" *ngFor="let final of finalResults">
+        <thead class="bg-light">
+          <tr>
+            <th *ngFor = "let item of final | keyvalue;">{{ item.key }}</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td *ngFor = "let i of final | keyvalue;"> {{ i.value }}</td>
+            
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- <a href="/exam-results-create" class="btn btn-info col-lg-6 offset-lg-3">Add new result</a> -->
+
+</div>

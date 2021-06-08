@@ -1,0 +1,19 @@
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th *ngFor = "let item of data[0] | keyvalue;">{{ item.key }}</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let item of data;  index as in;">
+            <!-- <ng-template ngFor let i of item | keyvalue let-in="index">
+                <td>  i.value </td>
+            </ng-template> -->
+            <td *ngFor = "let i of item | keyvalue;"> {{ i.value }}</td>
+            <td style="text-align: center;"><a href="/edit-student?id={{ item['id'] }}" class="btn btn-success align-self-center">Edit </a></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,38 @@
+
+<div class="container-fluid p-3">
+    <div class="row justify-content-center">
+        <div class="card text-center" style="min-width: 500px;">
+            <div class="card-header">
+                <h5 class="card-title">Create student account</h5>
+            </div>
+
+            <div class="card-body  text-left">
+              <form [formGroup]="myForm" (ngSubmit)="register()">
+                <label for="username" class="form-label mx-auto">Username</label>
+                <input id = "username" placeholder="username" class = "form-control" formControlName="username"> 
+                <div class=" pb-3"> <li class="error" *ngFor="let item of error['Username']">{{ item }}</li> </div>
+                
+                <label for="email" class="form-label mx-auto">Email address</label>
+                <input id = "email" type = "email" placeholder="email" class = "form-control" formControlName="email"> 
+                <div class=" pb-3"> <li class="error" *ngFor="let item of error['Email']">{{ item }}</li> </div>
+                
+                <label for="password" class="form-label">Password</label>
+                <input type = "password" id = "password" placeholder="password" class = "form-control" formControlName="password"> 
+                <div class=" pb-3"> <li class="error" *ngFor="let item of error['Password']">{{ item }}</li> </div>
+
+                <div class=" pb-3"> <li class="error" *ngFor="let item of error['Errors']">{{ item }}</li> </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid" >Create student account</button>
+                </form>
+            </div>
+
+            <div class="card-footer text-muted">
+                <!-- <a href="/login" class="btn btn-success" >
+                    <h6>Already have an account? Login here.</h6>
+                </a> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
